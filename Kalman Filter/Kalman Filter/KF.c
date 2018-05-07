@@ -10,44 +10,111 @@ typedef struct {
 	double** content;
 } Matrix;
 
-//double** CreateMatrix(int row, int column);
+Matrix CreateArbitraryMatrix(int row, int column);
 Matrix CreateMatrix(int row, int column);
-double** CreatePhiMatrix(int N, double spindleSpeed, double samplingPeriod);
-double* CreateHMatrix(int N);
-double** CreateQMatrix(int N, double lamda, double R);
+Matrix CreateEmptyMatrix(int row, int column);
+Matrix CreatePhiMatrix(int N, double spindleSpeed, double samplingPeriod);
+Matrix CreateHMatrix(int N);
+Matrix CreateQMatrix(int N, double lamda, double R);
 double* ReadMeasurements(char* filePath);
 double CalculateVariance(double* measurement, int rangeBottom, int rangeTop);
-double* CreateInitialQ(int N);
-double** CreateInitialP(int N);
+Matrix CreateInitialQ(int N);
+Matrix CreateInitialP(int N);
 Matrix MatrixTranspose(Matrix matrix);
+Matrix MatirxMultiplication(Matrix matrix1, Matrix matrix2);
+Matrix MatirxAddition(Matrix matrix1, Matrix matrix2);
+Matrix MatirxSubtraction(Matrix matrix1, Matrix matrix2);
+double Determinant(Matrix matrix);
+Matrix InverseMatrix(Matrix matrix);
+void PrintMatrix(Matrix matrix);
 
 int main(void)
 {
 	int N = 10;
-	//int i, j, count;
 	double spindleSpeed = 200 * 2 * PI;
 	double samplingPeriod = 3.90625E-5;
 	double lamda = 1E-6;
 
-	//double** matrix = CreateMatrix(2 * N, 1 * N);
-	Matrix matrix = CreateMatrix(2 * N, 1 );
-	double** phiMatrix = CreatePhiMatrix(N, spindleSpeed, samplingPeriod);
-	double* HMatrix = CreateHMatrix(N);
+	Matrix matrix = CreateMatrix(2 * N, 1 * N );
+	Matrix phiMatrix = CreatePhiMatrix(N, spindleSpeed, samplingPeriod);
+	Matrix HMatrix = CreateHMatrix(N);
 
 	char* filePath = "G:\\MECH552\\yudi\\data\\Acc2.txt";
 
 	double* meausrements = ReadMeasurements(filePath);
 	double R = CalculateVariance(meausrements, 100, 700);
 
-	double** QMatrix = CreateQMatrix(N, lamda, R);
-	//double* initialQ = CreateInitialQ(N);
-	//double** initialP = CreateInitialP(N);
+	Matrix QMatrix = CreateQMatrix(N, lamda, R);
+	//Matrix initialQ = CreateInitialQ(N);
+	//Matrix initialP = CreateInitialP(N);
 
-	Matrix Phi = { 2 * N, 2 * N, phiMatrix };
 	Matrix PhiTransposed = MatrixTranspose(matrix);
+
+	Matrix matrix1 = CreateArbitraryMatrix(3, 3);
+	Matrix matrix2 = CreateArbitraryMatrix(3, 3);
+//	Matrix result = MatirxMultiplication(matrix1, matrix2);
+	Matrix addResult = MatirxAddition(matrix1, matrix2);
+	Matrix minusResult = MatirxSubtraction(matrix1, matrix2);
+
+	//Matrix matrix3 = CreateArbitraryMatrix(4, 4);
+	//double det = Determinant(matrix3);
+	//printf("----Determinant is: %.3f.\n", det);
+	//Matrix inverse = InverseMatrix(matrix3);
 
 	system("pause");
 	return 0;
+}
+
+Matrix CreateEmptyMatrix(int row, int column)
+{
+	Matrix matrix;
+
+	matrix.row = row;
+	matrix.column = column;
+	matrix.content = (double**)calloc(matrix.row, sizeof(double*));
+	for (int i = 0; i < matrix.row; i++)
+		*(matrix.content + i) = (double *)calloc(matrix.column, sizeof(double));
+
+	return matrix;
+}
+
+void PrintMatrix(Matrix matrix)
+{
+	for (int i = 0; i < matrix.row; i++)
+	{
+		for (int j = 0; j < matrix.column; j++)
+			printf("%.3f  ", matrix.content[i][j]);
+		printf("\n");
+	}
+}
+
+Matrix CreateArbitraryMatrix(int row, int column)
+{
+	Matrix matrix;
+
+	matrix.row = row;
+	matrix.column = column;
+	matrix.content = (double**)calloc(matrix.row, sizeof(double*));
+	for (int i = 0; i < matrix.row; i++)
+		*(matrix.content + i) = (double *)calloc(matrix.column, sizeof(double));
+
+	printf("Please enter %d rows and %d columns of numbers: ", row, column);
+	
+	for (int i = 0; i < matrix.row; i++)
+	{
+		for (int j = 0; j < matrix.column; j++)
+			scanf("%lf", &(matrix.content[i][j]));
+	}
+
+	printf("------------ Matrix is£º---------------\n");
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < column; j++)
+			printf("%.5f  ", matrix.content[i][j]);
+		printf("\n");
+	}
+
+	return matrix;
 }
 
 Matrix CreateMatrix(int row, int column)
@@ -79,71 +146,59 @@ Matrix CreateMatrix(int row, int column)
 	return matrix;
 }
 
-//double** CreateMatrix(int row, int column)
-//{
-//	int i, j, count;
-//
-//	double** matrix = (double**)calloc(row, sizeof(double*));
-//	for (i = 0; i < row; i++)
-//		*(matrix + i) = (double *)calloc(column, sizeof(double));
-//
-//	count = 0;
-//	for ( i = 0; i < row; i++)
-//		for ( j = 0; j < column; j++)
-//		{	
-//			count++;
-//			matrix[i][j] = count;
-//		}
-//
-//	for (i = 0; i < row; i++)
-//	{
-//		for (j = 0; j < column; j++)
-//			printf("%.2f  ", matrix[i][j]);
-//		printf("\n");
-//	}
-//
-//	return matrix;
-//}
-
-double** CreatePhiMatrix(int N, double spindleSpeed, double samplingPeriod)
+Matrix CreatePhiMatrix(int N, double spindleSpeed, double samplingPeriod)
 {
-	int i,j,n;
+	Matrix phiMatrix;
+	phiMatrix.row = 2 * N;
+	phiMatrix.column = 2 * N;
 
-	double** phiMatrix = (double**)calloc(2*N, sizeof(double*));
-	for (i = 0; i < 2*N; i++)
-		*(phiMatrix + i) = (double *)calloc(2*N, sizeof(double));
+	phiMatrix.content = (double**)calloc(phiMatrix.row, sizeof(double*));
+	for (int i = 0; i < phiMatrix.row; i++)
+		*(phiMatrix.content + i) = (double *)calloc(phiMatrix.column, sizeof(double));
 
-	for ( n = 1; n <= N; n++)
+	for (int n = 1; n <= N; n++)
 	{
-		phiMatrix[2 * (n - 1)][2 * (n - 1)] = cos(n*spindleSpeed*samplingPeriod);
-		phiMatrix[2 * (n - 1)][2 * (n - 1) + 1] = -sin(n*spindleSpeed*samplingPeriod);
-		phiMatrix[2 * (n - 1) + 1][2 * (n - 1)] = sin(n*spindleSpeed*samplingPeriod);
-		phiMatrix[2 * (n - 1) + 1][2 * (n - 1) + 1] = cos(n*spindleSpeed*samplingPeriod);
+		phiMatrix.content[2 * (n - 1)][2 * (n - 1)] = cos(n*spindleSpeed*samplingPeriod);
+		phiMatrix.content[2 * (n - 1)][2 * (n - 1) + 1] = -sin(n*spindleSpeed*samplingPeriod);
+		phiMatrix.content[2 * (n - 1) + 1][2 * (n - 1)] = sin(n*spindleSpeed*samplingPeriod);
+		phiMatrix.content[2 * (n - 1) + 1][2 * (n - 1) + 1] = cos(n*spindleSpeed*samplingPeriod);
 	}
 
-	for (i = 0; i < 2 * N; i++)
+	printf("------ Phi Matrix------\n");
+	for (int i = 0; i < phiMatrix.row; i++)
 	{
-		for (j = 0; j < 2 * N; j++)
-			printf("%.5f  ", phiMatrix[i][j]);
+		for (int j = 0; j < phiMatrix.column; j++)
+			printf("%.5f  ", phiMatrix.content[i][j]);
 		printf("\n");
 	}
 
 	return phiMatrix;
 }
 
-double* CreateHMatrix(int N)
+Matrix CreateHMatrix(int N)
 {
-	double * HMatrix = (double *)calloc(2 * N, sizeof(double));
+	Matrix H;
+	H.row = 1;
+	H.column = 2 * N;
+
+	H.content = (double**)calloc(H.row, sizeof(double*));
+	for (int i = 0; i < H.row; i++)
+		*(H.content + i) = (double *)calloc(H.column, sizeof(double));
 
 	for (int i = 0; i < N; i++)
-		HMatrix[2 * i] = 1;
+		H.content[0][2 * i] = 1;
 
-	for (int i = 0; i < 2 * N; i++)
-		printf("%.1f  ", HMatrix[i]);
+	printf("------ H Matrix------\n");
+	for (int i = 0; i < H.row; i++)
+	{
+		for (int j = 0; j < H.column; j++)
+			printf("%.2f  ", H.content[i][j]);
+		printf("\n");
+	}
 
 	printf("\n");
 
-	return HMatrix;
+	return H;
 }
 
 double* ReadMeasurements(char* filePath)
@@ -207,55 +262,77 @@ double CalculateVariance(double* measurement, int rangeBottom, int rangeTop)
 	return variance;
 }
 
-double** CreateQMatrix(int N, double lamda, double R)
+Matrix CreateQMatrix(int N, double lamda, double R)
 {
-	double** QMatrix = (double**)calloc(2 * N, sizeof(double*));
-	for (int i = 0; i < 2 * N; i++)
-		*(QMatrix + i) = (double *)calloc(2 * N, sizeof(double));
+	Matrix Q;
+
+	Q.row = 2 * N;
+	Q.column = 2 * N;
+
+	Q.content = (double**)calloc(Q.row, sizeof(double*));
+	for (int i = 0; i < Q.row; i++)
+		*(Q.content + i) = (double *)calloc(Q.column, sizeof(double));
 
 	for (int i = 0; i < 2 * N; i++)
-		QMatrix[i][i] = lamda * R;
+		Q.content[i][i] = lamda * R;
 
 	printf("------QMatrix------\n");
 	for (int i = 0; i < 2 * N; i++)
 	{
 		for (int j = 0; j < 2 * N; j++)
-			printf("%.15f  ", QMatrix[i][j]);
+			printf("%.15f  ", Q.content[i][j]);
 		printf("\n");
 	}
 
-	return QMatrix;
+	return Q;
 }
 
-double* CreateInitialQ(int N)
+Matrix CreateInitialQ(int N)
 {
-	double* initialQ = (double *)calloc(2 * N, sizeof(double));
+	Matrix initialQ;
+
+	initialQ.row = 2 * N;
+	initialQ.column = 1;
+
+	initialQ.content = (double**)calloc(initialQ.row, sizeof(double*));
+	for (int i = 0; i < initialQ.row; i++)
+		*(initialQ.content + i) = (double *)calloc(initialQ.column, sizeof(double));
+
 	printf("------Q0 Matrix-----\n");
-	for (int i = 0; i < 2 * N; i++)		
-			printf("%.5f  ", initialQ[i]);
+	for (int i = 0; i < initialQ.row; i++)
+	{
+		for (int j = 0; j < initialQ.column; j++)
+			printf("%.5f  ", initialQ.content[i][j]);
+		printf("\n");
+	}
 
 	printf("\n");
 
 	return initialQ;
 }
 
-double** CreateInitialP(int N)
+Matrix CreateInitialP(int N)
 {
-	double** initialP = (double**)calloc(2 * N, sizeof(double*));
-	for (int i = 0; i < 2 * N; i++)
-		*(initialP + i) = (double *)calloc(2 * N, sizeof(double));
+	Matrix initialP;
 
-	for (int i = 0; i < 2 * N; i++)
+	initialP.row = 2 * N;
+	initialP.column = 2 * N;
+	
+	initialP.content = (double**)calloc(initialP.row, sizeof(double*));
+	for (int i = 0; i <  initialP.row; i++)
+		*(initialP.content + i) = (double *)calloc(initialP.column, sizeof(double));
+
+	for (int i = 0; i < initialP.row; i++)
 	{
-		for (int j = 0; j < 2*N; j++)
-			initialP[i][j] = 1;
+		for (int j = 0; j < initialP.column; j++)
+			initialP.content[i][j] = 1;
 	}
 
 	printf("------ P0 Matrix------\n");
-	for (int i = 0; i < 2 * N; i++)
+	for (int i = 0; i < initialP.row; i++)
 	{
-		for (int j = 0; j < 2 * N; j++)
-			printf("%.5f  ", initialP[i][j]);
+		for (int j = 0; j < initialP.column; j++)
+			printf("%.5f  ", initialP.content[i][j]);
 		printf("\n");
 	}
 
@@ -278,16 +355,6 @@ Matrix MatrixTranspose(Matrix matrix)
 			matrixTransposed.content[i][j] = matrix.content[j][i];			
 	}
 
-	//double** matrixTransposed = (double**)calloc( column , sizeof(double*));
-	//for (int i = 0; i < row; i++)
-	//	*(matrixTransposed + i) = (double *)calloc(row, sizeof(double));
-
-	//for (int i = 0; i < column; i++)
-	//{
-	//	for (int j = 0; j < row; j++)
-	//		matrixTransposed[i][j] = matrix[j][i];			
-	//}
-
 	printf("------ Transposed Matrix------\n");
 	for (int i = 0; i < matrixTransposed.row; i++)
 	{
@@ -299,3 +366,173 @@ Matrix MatrixTranspose(Matrix matrix)
 	return matrixTransposed;
 }
 
+Matrix MatirxMultiplication(Matrix matrix1, Matrix matrix2) 
+{
+	if (matrix1.column != matrix2.row)
+	{
+		printf("Dimension Invalid!\n");
+		return;
+	}
+
+	Matrix result = CreateEmptyMatrix(matrix1.row, matrix2.column);
+
+	for (int i = 0; i < result.row; i++)
+	{
+		for (int j = 0; j < result.column; j++)
+		{
+			//result[i, j] = 0; //Default values are 0
+			for (int k = 0; k < matrix1.column; k++)
+				result.content[i][j] = result.content[i][j] + matrix1.content[i][k] * matrix2.content[k][j];
+		}
+	}
+
+	printf("------ Multiplication Result------\n");
+	PrintMatrix(result);
+
+	return result;
+}
+
+Matrix MatirxAddition(Matrix matrix1, Matrix matrix2)
+{
+	if (matrix1.row != matrix2.row || matrix1.column != matrix2.column)
+	{
+		printf("Dimension Invalid!\n");
+		return;
+	}
+
+	Matrix result = CreateEmptyMatrix(matrix1.row, matrix1.column);
+
+	for (int i = 0; i < matrix1.row; i++)
+	{
+		for (int j = 0; j < matrix1.column; j++)
+			result.content[i][j] = matrix1.content[i][j] + matrix2.content[i][j];
+	}
+
+	printf("------ Addition Result------\n");
+	PrintMatrix(result);
+	return result;
+}
+
+Matrix MatirxSubtraction(Matrix matrix1, Matrix matrix2)
+{
+	if (matrix1.row != matrix2.row || matrix1.column != matrix2.column)
+	{
+		printf("Dimension Invalid!\n");
+		return;
+	}
+
+	Matrix result = CreateEmptyMatrix(matrix1.row, matrix1.column);
+
+	for (int i = 0; i < matrix1.row; i++)
+	{
+		for (int j = 0; j < matrix1.column; j++)
+			result.content[i][j] = matrix1.content[i][j] - matrix2.content[i][j];
+	}
+
+	printf("------ Subtraction Result------\n");
+	PrintMatrix(result);
+	return result;
+}
+
+double Determinant(Matrix matrix)
+{
+	double det = 0, coefficient = 1;
+
+	if (matrix.row != matrix.column)
+	{
+		printf("Invalid Dimension. Determinant does not exist!\n");
+		return;
+	}
+
+	if (matrix.row == 1)
+		det = matrix.content[0][0];
+	else
+	{
+		Matrix minor = CreateEmptyMatrix(matrix.row - 1, matrix.column - 1);
+		for (int c = 0; c < matrix.row; c++) // Loop through the 1st row
+		{
+			int m = 0;
+			int n = 0;
+
+			for (int i = 0; i < matrix.row; i++)
+			{
+				for (int j = 0; j < matrix.row; j++)
+				{
+					if (i != 0 && j != c) // Exclude the current row and column of elements
+					{
+						minor.content[m][n] = matrix.content[i][j];
+						if (n < matrix.column - 2)
+							n++;
+						else
+						{
+							n = 0;
+							m++;
+						}
+					}
+				}
+			}
+
+			det = det + coefficient*(matrix.content[0][c] * Determinant(minor));
+			coefficient = -1 * coefficient;
+		}
+	}
+	
+	return det;
+}
+
+Matrix InverseMatrix(Matrix matrix)
+{
+	Matrix inverse = CreateEmptyMatrix(matrix.row, matrix.column);
+	Matrix cofactor = CreateEmptyMatrix(matrix.row, matrix.column);
+	Matrix minor = CreateEmptyMatrix(matrix.row - 1, matrix.column - 1);
+
+	double det = Determinant(matrix);
+
+	if (det == 0)
+	{
+		printf("Singular matrix, no inverse!\n");
+		return;
+	}
+
+	for (int p = 0; p < matrix.row; p++)
+	{
+		for (int q = 0; q < matrix.column; q++)
+		{
+			int m = 0;
+			int n = 0;
+
+			for (int i = 0; i < matrix.row; i++)
+			{
+				for (int j = 0; j < matrix.column; j++)
+				{
+					if (i != p && j != q)
+					{
+						minor.content[m][n] = matrix.content[i][j];
+						if (n < matrix.column - 2)
+							n++;
+						else
+						{
+							n = 0;
+							m++;
+						}
+					}
+				}
+			}
+			cofactor.content[p][q] = pow(-1, p + q) * Determinant(minor);
+		}
+	}
+
+	Matrix cofactorTransposed = MatrixTranspose(cofactor);
+
+	for (int i = 0; i < matrix.row; i++)
+	{
+		for (int j = 0; j < matrix.column; j++)
+			inverse.content[i][j] = cofactorTransposed.content[i][j] / det;
+	}
+
+	printf("------------Inversed Maitrx:----------\n");
+
+	PrintMatrix(inverse);
+
+	return inverse;
+}

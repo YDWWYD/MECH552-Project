@@ -1,4 +1,19 @@
 ﻿  KF.c
-g:\mech552 chatter detection\kalman filter\kalman filter\kf.c(47): warning C4101: 'PhiTransposed': unreferenced local variable
-  Kalman Filter.vcxproj -> G:\MECH552 Chatter Detection\Kalman Filter\Debug\Kalman Filter.exe
-  Kalman Filter.vcxproj -> G:\MECH552 Chatter Detection\Kalman Filter\Debug\Kalman Filter.pdb (Partial PDB)
+g:\mech552 project\kalman filter\kalman filter\kf.c(40): warning C4101: 'phiMatrix': unreferenced local variable
+g:\mech552 project\kalman filter\kalman filter\kf.c(57): warning C4101: 'addResult': unreferenced local variable
+g:\mech552 project\kalman filter\kalman filter\kf.c(48): warning C4101: 'QMatrix': unreferenced local variable
+g:\mech552 project\kalman filter\kalman filter\kf.c(41): warning C4101: 'HMatrix': unreferenced local variable
+g:\mech552 project\kalman filter\kalman filter\kf.c(52): warning C4101: 'PhiTransposed': unreferenced local variable
+g:\mech552 project\kalman filter\kalman filter\kf.c(58): warning C4101: 'minusResult': unreferenced local variable
+g:\mech552 project\kalman filter\kalman filter\kf.c(383): warning C4033: 'MatirxMultiplication' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(413): warning C4033: 'MatirxAddition' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(434): warning C4033: 'MatirxSubtraction' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(457): warning C4033: 'Determinant' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(507): warning C4033: 'InverseMatrix' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(406): warning C4715: 'MatirxMultiplication': not all control paths return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(427): warning C4715: 'MatirxAddition': not all control paths return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(448): warning C4715: 'MatirxSubtraction': not all control paths return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(494): warning C4715: 'Determinant': not all control paths return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(551): warning C4715: 'InverseMatrix': not all control paths return a value
+  Kalman Filter.vcxproj -> G:\MECH552 Project\Kalman Filter\Debug\Kalman Filter.exe
+  Kalman Filter.vcxproj -> G:\MECH552 Project\Kalman Filter\Debug\Kalman Filter.pdb (Partial PDB)
