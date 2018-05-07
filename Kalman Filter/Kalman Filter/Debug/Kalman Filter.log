@@ -1,0 +1,4 @@
+﻿  KF.c
+g:\mech552 chatter detection\kalman filter\kalman filter\kf.c(47): warning C4101: 'PhiTransposed': unreferenced local variable
+  Kalman Filter.vcxproj -> G:\MECH552 Chatter Detection\Kalman Filter\Debug\Kalman Filter.exe
+  Kalman Filter.vcxproj -> G:\MECH552 Chatter Detection\Kalman Filter\Debug\Kalman Filter.pdb (Partial PDB)
