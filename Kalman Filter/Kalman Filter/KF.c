@@ -11,7 +11,6 @@ typedef struct {
 } Matrix;
 
 Matrix CreateArbitraryMatrix(int row, int column);
-Matrix CreateMatrix(int row, int column);
 Matrix CreateEmptyMatrix(int row, int column);
 Matrix CreatePhiMatrix(int N, double spindleSpeed, double samplingPeriod);
 Matrix CreateHMatrix(int N);
@@ -38,11 +37,9 @@ int main(void)
 	double samplingPeriod = 3.90625E-5;
 	double lamda = 1E-6;
 
-	//Matrix matrix = CreateMatrix(2 * N, 1 * N );
 	Matrix phiMatrix = CreatePhiMatrix(N, spindleSpeed, samplingPeriod);
 	Matrix HMatrix = CreateHMatrix(N);
 
-	//char* filePath = "G:\\MECH552\\yudi\\data\\Acc2.txt";
 	char* filePath = "..\\Acc2.txt";
 
 	Matrix measurements = ReadMeasurements(filePath);
@@ -52,22 +49,19 @@ int main(void)
 	Matrix initial_q = CreateInitial_q(N);
 	Matrix initialP = CreateInitialP(N);
 
-	//Matrix PhiTransposed = Transpose(matrix);
-
 	//Matrix matrix1 = CreateArbitraryMatrix(3, 3);
 	//Matrix matrix2 = CreateArbitraryMatrix(3, 3);
 	//	Matrix result = MatrixMultiplication(matrix1, matrix2);
 
-	//Matrix result = MatrixMultiplication(matrix1, matrix2);
-	//Matrix addResult = MatrixAddition(matrix1, matrix2);
-	//Matrix minusResult = MatrixSubtraction(matrix1, matrix2);
-
-	//Matrix matrix3 = CreateArbitraryMatrix(1, 1);
-	//double det = Determinant(matrix3);
-	//printf("----Determinant is: %.3f.\n", det);
-	//Matrix inverse = Inverse(matrix3);
-
 	Matrix SpEst = Kalman(measurements, initial_q, initialP, QMatrix, R, phiMatrix, HMatrix);
+
+	FreeMatrixMemory(phiMatrix);
+	FreeMatrixMemory(HMatrix);
+	FreeMatrixMemory(measurements);
+	FreeMatrixMemory(R);
+	FreeMatrixMemory(QMatrix);
+	FreeMatrixMemory(initial_q);
+	FreeMatrixMemory(initialP);
 
 	system("pause");
 	return 0;
@@ -101,22 +95,14 @@ Matrix IdentityMatrix(int N)
 	Matrix identity = CreateEmptyMatrix(N, N);
 
 	for (int i = 0; i < N; i++)
-	{
 		identity.content[i][i] = 1;
-	}
 
 	return identity;
 }
 
 Matrix CreateArbitraryMatrix(int row, int column)
 {
-	Matrix matrix;
-
-	matrix.row = row;
-	matrix.column = column;
-	matrix.content = (double**)calloc(matrix.row, sizeof(double*));
-	for (int i = 0; i < matrix.row; i++)
-		*(matrix.content + i) = (double *)calloc(matrix.column, sizeof(double));
+	Matrix matrix =  CreateEmptyMatrix(row, column);
 
 	printf("Please enter %d rows and %d columns of numbers: ", row, column);
 	
@@ -127,42 +113,8 @@ Matrix CreateArbitraryMatrix(int row, int column)
 	}
 
 	printf("------------ Matrix is£º---------------\n");
-	for (int i = 0; i < row; i++)
-	{
-		for (int j = 0; j < column; j++)
-			printf("%.5f  ", matrix.content[i][j]);
-		printf("\n");
-	}
+	PrintMatrix(matrix);
 
-	return matrix;
-}
-
-Matrix CreateMatrix(int row, int column)
-{
-	Matrix matrix;
-	int count = 0;
-	
-	matrix.row = row;
-	matrix.column = column;
-
-	matrix.content = (double**)calloc(row, sizeof(double*));
-	for (int i = 0; i < row; i++)
-		*(matrix.content + i) = (double *)calloc(column, sizeof(double));
-
-	for ( int i = 0; i < row; i++)
-		for ( int j = 0; j < column; j++)
-		{	
-			count++;
-			matrix.content[i][j] = count;
-		}
-	
-	for (int i = 0; i < row; i++)
-	{
-		for (int j = 0; j < column; j++)
-			printf("%.2f  ", matrix.content[i][j]);
-		printf("\n");
-	}
-	
 	return matrix;
 }
 
@@ -179,12 +131,7 @@ Matrix CreatePhiMatrix(int N, double spindleSpeed, double samplingPeriod)
 	}
 
 	printf("------ Phi Matrix------\n");
-	for (int i = 0; i < phiMatrix.row; i++)
-	{
-		for (int j = 0; j < phiMatrix.column; j++)
-			printf("%.5f  ", phiMatrix.content[i][j]);
-		printf("\n");
-	}
+	PrintMatrix(phiMatrix);
 
 	return phiMatrix;
 }
@@ -225,18 +172,14 @@ Matrix ReadMeasurements(char* filePath)
 
 	fclose(fp);
 	FILE* fp2 = fopen(filePath, "r");
-	//double* measurement = (double *)malloc(dataNumber * sizeof(double));
 	Matrix measurement = CreateEmptyMatrix(dataNumber,1);
 
 	char* test = (char *)malloc(100 * sizeof(char)); // allocate memory for a string of 100 characters
-	//char test[100];
 
 	for ( i = 0; i < dataNumber; i++)
 	{
 		fscanf(fp2, "%s", test);
-		//printf("Test\n");
 		measurement.content[i][0] = atof(test);
-		//printf("%.8f\n", measurement[i]);
 	}
 
 	fclose(fp2);
@@ -250,7 +193,6 @@ Matrix CalculateVariance(Matrix measurement, int rangeBottom, int rangeTop)
 	double average = 0;
 
 	Matrix variance = CreateEmptyMatrix(1, 1);
-	//double variance = 0;
 
 	for (int i = 0; i < numOfData; i++)
 		sum = sum + measurement.content[rangeBottom - 1 + i][0] * PI/30;
@@ -268,14 +210,7 @@ Matrix CalculateVariance(Matrix measurement, int rangeBottom, int rangeTop)
 
 Matrix CreateQMatrix(int N, double lamda, Matrix R)
 {
-	Matrix Q;
-
-	Q.row = 2 * N;
-	Q.column = 2 * N;
-
-	Q.content = (double**)calloc(Q.row, sizeof(double*));
-	for (int i = 0; i < Q.row; i++)
-		*(Q.content + i) = (double *)calloc(Q.column, sizeof(double));
+	Matrix Q = CreateEmptyMatrix(2*N, 2*N);
 
 	for (int i = 0; i < 2 * N; i++)
 		Q.content[i][i] = lamda * R.content[0][0];
@@ -306,9 +241,7 @@ Matrix CreateInitialP(int N)
 	Matrix initialP = CreateEmptyMatrix(2*N, 2*N);
 
 	for (int i = 0; i < initialP.row; i++)
-	{
 			initialP.content[i][i] = 10;
-	}
 
 	printf("------ P0 Matrix------\n");
 	PrintMatrix(initialP);
@@ -318,13 +251,13 @@ Matrix CreateInitialP(int N)
 
 Matrix Transpose(Matrix matrix)
 {
-	Matrix matrixTransposed;
-	matrixTransposed.row = matrix.column;
-	matrixTransposed.column = matrix.row;
+	Matrix matrixTransposed = CreateEmptyMatrix(matrix.column, matrix.row);
+	//matrixTransposed.row = matrix.column;
+	//matrixTransposed.column = matrix.row;
 
-	matrixTransposed.content = (double**)calloc( matrixTransposed.row , sizeof(double*));
-	for (int i = 0; i < matrixTransposed.row; i++)
-		*(matrixTransposed.content + i) = (double *)calloc(matrixTransposed.column, sizeof(double));
+	//matrixTransposed.content = (double**)calloc( matrixTransposed.row , sizeof(double*));
+	//for (int i = 0; i < matrixTransposed.row; i++)
+	//	*(matrixTransposed.content + i) = (double *)calloc(matrixTransposed.column, sizeof(double));
 
 	for (int i = 0; i < matrixTransposed.row; i++)
 	{
@@ -527,12 +460,6 @@ Matrix Kalman(Matrix measurement, Matrix q0, Matrix P0, Matrix Q, Matrix R, Matr
 {
 	Matrix currentMeasurement = CreateEmptyMatrix(1, 1);
 
-	//Matrix K = CreateEmptyMatrix(P0.row, 1); // Kalman Filter Gain
-	//Matrix qHatPrior = CreateEmptyMatrix(q0.row, q0.column); // q prior estimate [2N * 1]
-	//Matrix PHatPrior = CreateEmptyMatrix(Q.row, Q.column); // P prior estimate [2N * 2N]
-	//Matrix qPost = CreateEmptyMatrix(q0.row, q0.column); // q posteriori estimate [2N * 1]
-	//Matrix PPost = CreateEmptyMatrix(Q.row, Q.column); // P posteriori estimate [2N * 2N]
-
 	Matrix K ; // Kalman Filter Gain
 	Matrix qHatPrior; // q prior estimate [2N * 1]
 	Matrix PHatPrior; // P prior estimate [2N * 2N]
@@ -565,19 +492,19 @@ Matrix Kalman(Matrix measurement, Matrix q0, Matrix P0, Matrix Q, Matrix R, Matr
 
 	int count = 0;
 
-	//for (int i = 0; i < 100; i++)
-	for (int i = 0; i < measurement.row; i++)
+	for (int i = 0; i < 100; i++)
+	//for (int i = 0; i < measurement.row; i++)
 	{
 		if (i == 0)
 		{
 			qHatPrior = MatrixMultiplication(Phi, q0);
-			printf("----------------qHatPrior:----------------\n");
-			PrintMatrix(qHatPrior);
+			//printf("----------------qHatPrior:----------------\n");
+			//PrintMatrix(qHatPrior);
 
 			PPhiTrans = MatrixMultiplication(P0, PhiTranspose); // PPhiTrans: P_k-1*Phi'
 			PhiPPhiTrans = MatrixMultiplication(Phi, PPhiTrans);
 			PHatPrior = MatrixAddition(PhiPPhiTrans, Q);
-			printf("----------------PHatPrior:----------------\n");
+			//printf("----------------PHatPrior:----------------\n");
 			//for (int i = 0; i < PHatPrior.row; i++)
 			//{
 			//	for (int j = 0; j < PHatPrior.column; j++)
@@ -650,17 +577,15 @@ Matrix Kalman(Matrix measurement, Matrix q0, Matrix P0, Matrix Q, Matrix R, Matr
 	}
 	//qHatPrior = MatrixMultiplication(Phi, q0);
 	//PHatPrior = MatrixAddition(MatrixMultiplication(Phi, MatrixMultiplication(P0, Transpose(Phi))), Q);
-
 	//K = MatrixMultiplication(PHatPrior, MatrixMultiplication(Transpose(H), Inverse(MatrixAddition(MatrixMultiplication(H, MatrixMultiplication(PHatPrior, Transpose(H))), R))));
 	//currentMeasurement.content[0][0] = measurement.content[0][0];
 	//qPost = MatrixAddition(qHatPrior, MatrixMultiplication(K, MatrixSubtraction(currentMeasurement, MatrixMultiplication(H, qHatPrior))));
 	//PPost = MatrixMultiplication(MatrixSubtraction(IdentityMatrix(P0.row), MatrixMultiplication(K, H)), PHatPrior);
 
-
 	printf("----------Sp_estimation--------------\n");
 	PrintMatrix(SpEst);
 
-	FILE* OutFilePointer = fopen("..\\Kalman Ouput.txt", "w");
+	FILE* OutFilePointer = fopen("..\\Kalman Output.txt", "w");
 
 	fprintf(OutFilePointer, "Output from the Kalman filter is:\n");
 	for (int i = 0; i < SpEst.row; i++)
@@ -670,9 +595,12 @@ Matrix Kalman(Matrix measurement, Matrix q0, Matrix P0, Matrix Q, Matrix R, Matr
 
 	fclose(OutFilePointer);
 
-	//printf("%.5f\n", SpEst.content[0][0]);
-	//printf("%.5f\n", SpEst.content[1][0]);
-	//printf("%.5f\n", SpEst.content[2][0]);
+	FreeMatrixMemory(PhiTranspose);
+	FreeMatrixMemory(identity2N);
+	FreeMatrixMemory(HTranspose);
+	FreeMatrixMemory(SpEst);
+	FreeMatrixMemory(currentMeasurement);
+
 	return SpEst;
 }
 
