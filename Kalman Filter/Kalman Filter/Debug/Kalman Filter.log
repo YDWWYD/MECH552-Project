@@ -1,18 +1,16 @@
 ﻿  KF.c
-g:\mech552 project\kalman filter\kalman filter\kf.c(69): warning C4101: 'SpEst': unreferenced local variable
-g:\mech552 project\kalman filter\kalman filter\kf.c(214): warning C4033: 'ReadMeasurements' must return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(352): warning C4033: 'MatrixMultiplication' must return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(378): warning C4033: 'MatrixAddition' must return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(399): warning C4033: 'MatrixSubtraction' must return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(422): warning C4033: 'Determinant' must return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(472): warning C4033: 'Inverse' must return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(667): warning C4474: 'fprintf' : too many arguments passed for format string
-  g:\mech552 project\kalman filter\kalman filter\kf.c(667): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-g:\mech552 project\kalman filter\kalman filter\kf.c(243): warning C4715: 'ReadMeasurements': not all control paths return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(371): warning C4715: 'MatrixMultiplication': not all control paths return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(392): warning C4715: 'MatrixAddition': not all control paths return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(413): warning C4715: 'MatrixSubtraction': not all control paths return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(459): warning C4715: 'Determinant': not all control paths return a value
-g:\mech552 project\kalman filter\kalman filter\kf.c(523): warning C4715: 'Inverse': not all control paths return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(70): warning C4101: 'SpEst': unreferenced local variable
+g:\mech552 project\kalman filter\kalman filter\kf.c(215): warning C4033: 'ReadMeasurements' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(353): warning C4033: 'MatrixMultiplication' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(379): warning C4033: 'MatrixAddition' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(400): warning C4033: 'MatrixSubtraction' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(423): warning C4033: 'Determinant' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(473): warning C4033: 'Inverse' must return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(244): warning C4715: 'ReadMeasurements': not all control paths return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(372): warning C4715: 'MatrixMultiplication': not all control paths return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(393): warning C4715: 'MatrixAddition': not all control paths return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(414): warning C4715: 'MatrixSubtraction': not all control paths return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(460): warning C4715: 'Determinant': not all control paths return a value
+g:\mech552 project\kalman filter\kalman filter\kf.c(524): warning C4715: 'Inverse': not all control paths return a value
   Kalman Filter.vcxproj -> G:\MECH552 Project\Kalman Filter\Debug\Kalman Filter.exe
   Kalman Filter.vcxproj -> G:\MECH552 Project\Kalman Filter\Debug\Kalman Filter.pdb (Partial PDB)

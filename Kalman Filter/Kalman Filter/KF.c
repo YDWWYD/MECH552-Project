@@ -42,7 +42,8 @@ int main(void)
 	Matrix phiMatrix = CreatePhiMatrix(N, spindleSpeed, samplingPeriod);
 	Matrix HMatrix = CreateHMatrix(N);
 
-	char* filePath = "G:\\MECH552\\yudi\\data\\Acc2.txt";
+	//char* filePath = "G:\\MECH552\\yudi\\data\\Acc2.txt";
+	char* filePath = "..\\Acc2.txt";
 
 	Matrix measurements = ReadMeasurements(filePath);
 	Matrix R = CalculateVariance(measurements, 100, 700);
@@ -564,8 +565,8 @@ Matrix Kalman(Matrix measurement, Matrix q0, Matrix P0, Matrix Q, Matrix R, Matr
 
 	int count = 0;
 
-	//for (int i = 0; i < 1009; i++)
-	for (int i = 0; i < measurement.row; i++)
+	for (int i = 0; i < 100; i++)
+	//for (int i = 0; i < measurement.row; i++)
 	{
 		if (i == 0)
 		{
@@ -659,12 +660,12 @@ Matrix Kalman(Matrix measurement, Matrix q0, Matrix P0, Matrix Q, Matrix R, Matr
 	printf("----------Sp_estimation--------------\n");
 	PrintMatrix(SpEst);
 
-	FILE* OutFilePointer = fopen("G:\\MECH552\\yudi\\data\\Kalman Ouput.txt", "w");
+	FILE* OutFilePointer = fopen("..\\Kalman Ouput.txt", "w");
 
 	fprintf(OutFilePointer, "Output from the Kalman filter is:\n");
 	for (int i = 0; i < SpEst.row; i++)
 	{
-		fprintf(OutFilePointer, ".6f\n", SpEst.content[i][0]);
+		fprintf(OutFilePointer, "%.6f\n", SpEst.content[i][0]);
 	}
 
 	fclose(OutFilePointer);
