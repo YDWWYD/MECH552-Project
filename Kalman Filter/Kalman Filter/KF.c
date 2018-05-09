@@ -565,8 +565,8 @@ Matrix Kalman(Matrix measurement, Matrix q0, Matrix P0, Matrix Q, Matrix R, Matr
 
 	int count = 0;
 
-	for (int i = 0; i < 100; i++)
-	//for (int i = 0; i < measurement.row; i++)
+	//for (int i = 0; i < 100; i++)
+	for (int i = 0; i < measurement.row; i++)
 	{
 		if (i == 0)
 		{
