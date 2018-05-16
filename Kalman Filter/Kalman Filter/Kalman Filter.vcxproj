@@ -112,7 +112,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CreateArbitraryMatrix.c" />
+    <ClCompile Include="CreateEmptyMatrix.c" />
+    <ClCompile Include="Determinant.c" />
+    <ClCompile Include="FreeMatrixMemory.c" />
+    <ClCompile Include="Inverse.c" />
     <ClCompile Include="KF.c" />
+    <ClCompile Include="MatrixAddition.c" />
+    <ClCompile Include="MatrixMultiplication.c" />
+    <ClCompile Include="MatrixSubtraction.c" />
+    <ClCompile Include="PrintMatrix.c" />
+    <ClCompile Include="Transpose.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="MatrixOperations.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

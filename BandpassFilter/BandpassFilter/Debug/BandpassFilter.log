@@ -1,0 +1,5 @@
+﻿  main.c
+g:\mech552 project\bandpassfilter\bandpassfilter\main.c(96): warning C4013: 'emxInit_real_T1' undefined; assuming extern returning int
+g:\mech552 project\bandpassfilter\bandpassfilter\main.c(97): warning C4013: 'emxInit_creal_T1' undefined; assuming extern returning int
+  BandpassFilter.vcxproj -> G:\MECH552 Project\BandpassFilter\Debug\BandpassFilter.exe
+  BandpassFilter.vcxproj -> G:\MECH552 Project\BandpassFilter\Debug\BandpassFilter.pdb (Partial PDB)

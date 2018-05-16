@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{BC5B4D05-ED70-4221-9443-1FEB85B4E7AE}</ProjectGuid>
+    <RootNamespace>BandpassFilter</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\PrintMatrix.c" />
+    <ClCompile Include="anyNonFinite.c" />
+    <ClCompile Include="butterBandpassOnly.c" />
+    <ClCompile Include="butterBandpassOnly_emxAPI.c" />
+    <ClCompile Include="butterBandpassOnly_emxutil.c" />
+    <ClCompile Include="butterBandpassOnly_initialize.c" />
+    <ClCompile Include="butterBandpassOnly_rtwutil.c" />
+    <ClCompile Include="butterBandpassOnly_terminate.c" />
+    <ClCompile Include="buttordBandpassOnly.c" />
+    <ClCompile Include="buttordBandpassOnly_initialize.c" />
+    <ClCompile Include="buttordBandpassOnly_terminate.c" />
+    <ClCompile Include="colon.c" />
+    <ClCompile Include="CreateEmptyMatrix.c" />
+    <ClCompile Include="eig.c" />
+    <ClCompile Include="exp.c" />
+    <ClCompile Include="eye.c" />
+    <ClCompile Include="inv.c" />
+    <ClCompile Include="isequal.c" />
+    <ClCompile Include="ixamax.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="mrdivide.c" />
+    <ClCompile Include="mybilinear.c" />
+    <ClCompile Include="mylp2bs.c" />
+    <ClCompile Include="mypoly.c" />
+    <ClCompile Include="myzp2ss.c" />
+    <ClCompile Include="qrsolve.c" />
+    <ClCompile Include="recip.c" />
+    <ClCompile Include="relop.c" />
+    <ClCompile Include="rtGetInf.c" />
+    <ClCompile Include="rtGetNaN.c" />
+    <ClCompile Include="rt_nonfinite.c" />
+    <ClCompile Include="schur.c" />
+    <ClCompile Include="sortButter.c" />
+    <ClCompile Include="sortButtord.c" />
+    <ClCompile Include="sqrt.c" />
+    <ClCompile Include="xdlapy3.c" />
+    <ClCompile Include="xgemv.c" />
+    <ClCompile Include="xgeqp3.c" />
+    <ClCompile Include="xgerc.c" />
+    <ClCompile Include="xgetrf.c" />
+    <ClCompile Include="xnrm2.c" />
+    <ClCompile Include="xscal.c" />
+    <ClCompile Include="xtrsm.c" />
+    <ClCompile Include="xunormqr.c" />
+    <ClCompile Include="xzgeev.c" />
+    <ClCompile Include="xzgetrf.c" />
+    <ClCompile Include="xzhgeqz.c" />
+    <ClCompile Include="xzhseqr.c" />
+    <ClCompile Include="xzlarfg.c" />
+    <ClCompile Include="xzlartg.c" />
+    <ClCompile Include="xzlascl.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Kalman Filter\Kalman Filter\Matrix.h" />
+    <ClInclude Include="anyNonFinite.h" />
+    <ClInclude Include="butterBandpassOnly.h" />
+    <ClInclude Include="butterBandpassOnly_emxAPI.h" />
+    <ClInclude Include="butterBandpassOnly_emxutil.h" />
+    <ClInclude Include="butterBandpassOnly_initialize.h" />
+    <ClInclude Include="butterBandpassOnly_rtwutil.h" />
+    <ClInclude Include="butterBandpassOnly_terminate.h" />
+    <ClInclude Include="butterBandpassOnly_types.h" />
+    <ClInclude Include="buttordBandpassOnly.h" />
+    <ClInclude Include="buttordBandpassOnly_initialize.h" />
+    <ClInclude Include="buttordBandpassOnly_terminate.h" />
+    <ClInclude Include="buttordBandpassOnly_types.h" />
+    <ClInclude Include="colon.h" />
+    <ClInclude Include="eig.h" />
+    <ClInclude Include="exp.h" />
+    <ClInclude Include="eye.h" />
+    <ClInclude Include="inv.h" />
+    <ClInclude Include="isequal.h" />
+    <ClInclude Include="ixamax.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="MatrixOperations.h" />
+    <ClInclude Include="mrdivide.h" />
+    <ClInclude Include="mybilinear.h" />
+    <ClInclude Include="mylp2bs.h" />
+    <ClInclude Include="mypoly.h" />
+    <ClInclude Include="myzp2ss.h" />
+    <ClInclude Include="qrsolve.h" />
+    <ClInclude Include="recip.h" />
+    <ClInclude Include="relop.h" />
+    <ClInclude Include="rtGetInf.h" />
+    <ClInclude Include="rtGetNaN.h" />
+    <ClInclude Include="rtwtypes.h" />
+    <ClInclude Include="rt_defines.h" />
+    <ClInclude Include="rt_nonfinite.h" />
+    <ClInclude Include="schur.h" />
+    <ClInclude Include="sortButter.h" />
+    <ClInclude Include="sortButtord.h" />
+    <ClInclude Include="sqrt.h" />
+    <ClInclude Include="xdlapy3.h" />
+    <ClInclude Include="xgemv.h" />
+    <ClInclude Include="xgeqp3.h" />
+    <ClInclude Include="xgerc.h" />
+    <ClInclude Include="xgetrf.h" />
+    <ClInclude Include="xnrm2.h" />
+    <ClInclude Include="xscal.h" />
+    <ClInclude Include="xtrsm.h" />
+    <ClInclude Include="xunormqr.h" />
+    <ClInclude Include="xzgeev.h" />
+    <ClInclude Include="xzgetrf.h" />
+    <ClInclude Include="xzhgeqz.h" />
+    <ClInclude Include="xzhseqr.h" />
+    <ClInclude Include="xzlarfg.h" />
+    <ClInclude Include="xzlartg.h" />
+    <ClInclude Include="xzlascl.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

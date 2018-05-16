@@ -1,17 +1,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include "Matrix.h"
+#include "MatrixOperations.h"
 
 #define PI acos(-1.0)
 
-typedef struct {
-	int row;
-	int column;
-	double** content;
-} Matrix;
+//typedef struct {
+//	int row;
+//	int column;
+//	double** content;
+//} Matrix;
 
-Matrix CreateArbitraryMatrix(int row, int column);
-Matrix CreateEmptyMatrix(int row, int column);
+//Matrix CreateArbitraryMatrix(int row, int column);
+//Matrix CreateEmptyMatrix(int row, int column);
 Matrix CreatePhiMatrix(int N, double spindleSpeed, double samplingPeriod);
 Matrix CreateHMatrix(int N);
 Matrix CreateQMatrix(int N, double lamda, Matrix R);
@@ -19,16 +21,16 @@ Matrix ReadMeasurements(char* filePath);
 Matrix CalculateVariance(Matrix measurement, int rangeBottom, int rangeTop);
 Matrix CreateInitial_q(int N);
 Matrix CreateInitialP(int N);
-Matrix Transpose(Matrix matrix);
-Matrix MatrixMultiplication(Matrix matrix1, Matrix matrix2);
-Matrix MatrixAddition(Matrix matrix1, Matrix matrix2);
-Matrix MatrixSubtraction(Matrix matrix1, Matrix matrix2);
-double Determinant(Matrix matrix);
-Matrix Inverse(Matrix matrix);
-void PrintMatrix(Matrix matrix);
+//Matrix Transpose(Matrix matrix);
+//Matrix MatrixMultiplication(Matrix matrix1, Matrix matrix2);
+//Matrix MatrixAddition(Matrix matrix1, Matrix matrix2);
+//Matrix MatrixSubtraction(Matrix matrix1, Matrix matrix2);
+//double Determinant(Matrix matrix);
+//Matrix Inverse(Matrix matrix);
+//void PrintMatrix(Matrix matrix);
 Matrix IdentityMatrix(int N);
 Matrix Kalman(Matrix measurement, Matrix q0, Matrix P0, Matrix Q, Matrix R, Matrix Phi, Matrix H);
-void FreeMatrixMemory(Matrix matrix);
+//void FreeMatrixMemory(Matrix matrix);
 
 int main(void)
 {
@@ -67,28 +69,28 @@ int main(void)
 	return 0;
 }
 
-Matrix CreateEmptyMatrix(int row, int column)
-{
-	Matrix matrix;
+//Matrix CreateEmptyMatrix(int row, int column)
+//{
+//	Matrix matrix;
+//
+//	matrix.row = row;
+//	matrix.column = column;
+//	matrix.content = (double**)calloc(matrix.row, sizeof(double*));
+//	for (int i = 0; i < matrix.row; i++)
+//		*(matrix.content + i) = (double *)calloc(matrix.column, sizeof(double));
+//
+//	return matrix;
+//}
 
-	matrix.row = row;
-	matrix.column = column;
-	matrix.content = (double**)calloc(matrix.row, sizeof(double*));
-	for (int i = 0; i < matrix.row; i++)
-		*(matrix.content + i) = (double *)calloc(matrix.column, sizeof(double));
-
-	return matrix;
-}
-
-void PrintMatrix(Matrix matrix)
-{
-	for (int i = 0; i < matrix.row; i++)
-	{
-		for (int j = 0; j < matrix.column; j++)
-			printf("%.5f  ", matrix.content[i][j]);
-		printf("\n");
-	}
-}
+//void PrintMatrix(Matrix matrix)
+//{
+//	for (int i = 0; i < matrix.row; i++)
+//	{
+//		for (int j = 0; j < matrix.column; j++)
+//			printf("%.5f  ", matrix.content[i][j]);
+//		printf("\n");
+//	}
+//}
 
 Matrix IdentityMatrix(int N)
 {
@@ -100,23 +102,23 @@ Matrix IdentityMatrix(int N)
 	return identity;
 }
 
-Matrix CreateArbitraryMatrix(int row, int column)
-{
-	Matrix matrix =  CreateEmptyMatrix(row, column);
-
-	printf("Please enter %d rows and %d columns of numbers: ", row, column);
-	
-	for (int i = 0; i < matrix.row; i++)
-	{
-		for (int j = 0; j < matrix.column; j++)
-			scanf("%lf", &(matrix.content[i][j]));
-	}
-
-	printf("------------ Matrix is£º---------------\n");
-	PrintMatrix(matrix);
-
-	return matrix;
-}
+//Matrix CreateArbitraryMatrix(int row, int column)
+//{
+//	Matrix matrix =  CreateEmptyMatrix(row, column);
+//
+//	printf("Please enter %d rows and %d columns of numbers: ", row, column);
+//	
+//	for (int i = 0; i < matrix.row; i++)
+//	{
+//		for (int j = 0; j < matrix.column; j++)
+//			scanf("%lf", &(matrix.content[i][j]));
+//	}
+//
+//	printf("------------ Matrix is£º---------------\n");
+//	PrintMatrix(matrix);
+//
+//	return matrix;
+//}
 
 Matrix CreatePhiMatrix(int N, double spindleSpeed, double samplingPeriod)
 {
@@ -249,212 +251,199 @@ Matrix CreateInitialP(int N)
 	return initialP;
 }
 
-Matrix Transpose(Matrix matrix)
-{
-	Matrix matrixTransposed = CreateEmptyMatrix(matrix.column, matrix.row);
-	//matrixTransposed.row = matrix.column;
-	//matrixTransposed.column = matrix.row;
+//Matrix Transpose(Matrix matrix)
+//{
+//	Matrix matrixTransposed = CreateEmptyMatrix(matrix.column, matrix.row);
+//
+//	for (int i = 0; i < matrixTransposed.row; i++)
+//	{
+//		for (int j = 0; j < matrixTransposed.column; j++)
+//			matrixTransposed.content[i][j] = matrix.content[j][i];			
+//	}
+//
+//	//printf("------ Transposed Matrix------\n");
+//	//PrintMatrix(matrixTransposed);
+//
+//	return matrixTransposed;
+//}
 
-	//matrixTransposed.content = (double**)calloc( matrixTransposed.row , sizeof(double*));
-	//for (int i = 0; i < matrixTransposed.row; i++)
-	//	*(matrixTransposed.content + i) = (double *)calloc(matrixTransposed.column, sizeof(double));
+//Matrix MatrixMultiplication(Matrix matrix1, Matrix matrix2) 
+//{
+//	if (matrix1.column != matrix2.row)
+//	{
+//		printf("Dimension Invalid!\n");
+//		return;
+//	}
+//
+//	Matrix result = CreateEmptyMatrix(matrix1.row, matrix2.column);
+//
+//	for (int i = 0; i < result.row; i++)
+//	{
+//		for (int j = 0; j < result.column; j++)
+//		{
+//			//result[i, j] = 0; //Default values are 0
+//			for (int k = 0; k < matrix1.column; k++)
+//				result.content[i][j] = result.content[i][j] + matrix1.content[i][k] * matrix2.content[k][j];
+//		}
+//	}
+//
+//	//printf("------ Multiplication Result------\n");
+//	//PrintMatrix(result);
+//
+//	return result;
+//}
 
-	for (int i = 0; i < matrixTransposed.row; i++)
-	{
-		for (int j = 0; j < matrixTransposed.column; j++)
-			matrixTransposed.content[i][j] = matrix.content[j][i];			
-	}
+//Matrix MatrixAddition(Matrix matrix1, Matrix matrix2)
+//{
+//	if (matrix1.row != matrix2.row || matrix1.column != matrix2.column)
+//	{
+//		printf("Dimension Invalid!\n");
+//		return;
+//	}
+//
+//	Matrix result = CreateEmptyMatrix(matrix1.row, matrix1.column);
+//
+//	for (int i = 0; i < matrix1.row; i++)
+//	{
+//		for (int j = 0; j < matrix1.column; j++)
+//			result.content[i][j] = matrix1.content[i][j] + matrix2.content[i][j];
+//	}
+//
+//	//printf("------ Addition Result------\n");
+//	//PrintMatrix(result);
+//	return result;
+//}
 
-	//printf("------ Transposed Matrix------\n");
-	//PrintMatrix(matrixTransposed);
+//Matrix MatrixSubtraction(Matrix matrix1, Matrix matrix2)
+//{
+//	if (matrix1.row != matrix2.row || matrix1.column != matrix2.column)
+//	{
+//		printf("Dimension Invalid!\n");
+//		return;
+//	}
+//
+//	Matrix result = CreateEmptyMatrix(matrix1.row, matrix1.column);
+//
+//	for (int i = 0; i < matrix1.row; i++)
+//	{
+//		for (int j = 0; j < matrix1.column; j++)
+//			result.content[i][j] = matrix1.content[i][j] - matrix2.content[i][j];
+//	}
+//
+//	//printf("------ Subtraction Result------\n");
+//	//PrintMatrix(result);
+//	return result;
+//}
 
-	/*for (int i = 0; i < matrixTransposed.row; i++)
-	{
-		for (int j = 0; j < matrixTransposed.column; j++)
-			printf("%.5f  ", matrixTransposed.content[i][j]);
-		printf("\n");
-	}*/
+//double Determinant(Matrix matrix)
+//{
+//	double det = 0, coefficient = 1;
+//
+//	if (matrix.row != matrix.column)
+//	{
+//		printf("Invalid Dimension. Determinant does not exist!\n");
+//		return;
+//	}
+//
+//	if (matrix.row == 1)
+//		det = matrix.content[0][0];
+//	else
+//	{
+//		Matrix minor = CreateEmptyMatrix(matrix.row - 1, matrix.column - 1);
+//		for (int c = 0; c < matrix.row; c++) // Loop through the 1st row
+//		{
+//			int m = 0;
+//			int n = 0;
+//
+//			for (int i = 0; i < matrix.row; i++)
+//			{
+//				for (int j = 0; j < matrix.row; j++)
+//				{
+//					if (i != 0 && j != c) // Exclude the current row and column of elements
+//					{
+//						minor.content[m][n] = matrix.content[i][j];
+//						if (n < matrix.column - 2)
+//							n++;
+//						else
+//						{
+//							n = 0;
+//							m++;
+//						}
+//					}
+//				}
+//			}
+//
+//			det = det + coefficient*(matrix.content[0][c] * Determinant(minor));
+//			coefficient = -1 * coefficient;
+//		}
+//	}
+//	
+//	return det;
+//}
 
-	return matrixTransposed;
-}
-
-Matrix MatrixMultiplication(Matrix matrix1, Matrix matrix2) 
-{
-	if (matrix1.column != matrix2.row)
-	{
-		printf("Dimension Invalid!\n");
-		return;
-	}
-
-	Matrix result = CreateEmptyMatrix(matrix1.row, matrix2.column);
-
-	for (int i = 0; i < result.row; i++)
-	{
-		for (int j = 0; j < result.column; j++)
-		{
-			//result[i, j] = 0; //Default values are 0
-			for (int k = 0; k < matrix1.column; k++)
-				result.content[i][j] = result.content[i][j] + matrix1.content[i][k] * matrix2.content[k][j];
-		}
-	}
-
-	//printf("------ Multiplication Result------\n");
-	//PrintMatrix(result);
-
-	return result;
-}
-
-Matrix MatrixAddition(Matrix matrix1, Matrix matrix2)
-{
-	if (matrix1.row != matrix2.row || matrix1.column != matrix2.column)
-	{
-		printf("Dimension Invalid!\n");
-		return;
-	}
-
-	Matrix result = CreateEmptyMatrix(matrix1.row, matrix1.column);
-
-	for (int i = 0; i < matrix1.row; i++)
-	{
-		for (int j = 0; j < matrix1.column; j++)
-			result.content[i][j] = matrix1.content[i][j] + matrix2.content[i][j];
-	}
-
-	//printf("------ Addition Result------\n");
-	//PrintMatrix(result);
-	return result;
-}
-
-Matrix MatrixSubtraction(Matrix matrix1, Matrix matrix2)
-{
-	if (matrix1.row != matrix2.row || matrix1.column != matrix2.column)
-	{
-		printf("Dimension Invalid!\n");
-		return;
-	}
-
-	Matrix result = CreateEmptyMatrix(matrix1.row, matrix1.column);
-
-	for (int i = 0; i < matrix1.row; i++)
-	{
-		for (int j = 0; j < matrix1.column; j++)
-			result.content[i][j] = matrix1.content[i][j] - matrix2.content[i][j];
-	}
-
-	//printf("------ Subtraction Result------\n");
-	//PrintMatrix(result);
-	return result;
-}
-
-double Determinant(Matrix matrix)
-{
-	double det = 0, coefficient = 1;
-
-	if (matrix.row != matrix.column)
-	{
-		printf("Invalid Dimension. Determinant does not exist!\n");
-		return;
-	}
-
-	if (matrix.row == 1)
-		det = matrix.content[0][0];
-	else
-	{
-		Matrix minor = CreateEmptyMatrix(matrix.row - 1, matrix.column - 1);
-		for (int c = 0; c < matrix.row; c++) // Loop through the 1st row
-		{
-			int m = 0;
-			int n = 0;
-
-			for (int i = 0; i < matrix.row; i++)
-			{
-				for (int j = 0; j < matrix.row; j++)
-				{
-					if (i != 0 && j != c) // Exclude the current row and column of elements
-					{
-						minor.content[m][n] = matrix.content[i][j];
-						if (n < matrix.column - 2)
-							n++;
-						else
-						{
-							n = 0;
-							m++;
-						}
-					}
-				}
-			}
-
-			det = det + coefficient*(matrix.content[0][c] * Determinant(minor));
-			coefficient = -1 * coefficient;
-		}
-	}
-	
-	return det;
-}
-
-Matrix Inverse(Matrix matrix)
-{
-	Matrix inverse = CreateEmptyMatrix(matrix.row, matrix.column);
-	Matrix cofactor = CreateEmptyMatrix(matrix.row, matrix.column);
-	Matrix minor = CreateEmptyMatrix(matrix.row - 1, matrix.column - 1);
-
-	double det = Determinant(matrix);
-
-	if (det == 0)
-	{
-		printf("Singular matrix, no inverse!\n");
-		return;
-	}
-
-	if (matrix.row == 1) // matrix is a number -> inverse = 1/det
-	{
-		inverse.content[0][0] = 1 / det;
-	}
-	
-	else
-	{
-		for (int p = 0; p < matrix.row; p++)
-		{
-			for (int q = 0; q < matrix.column; q++)
-			{
-				int m = 0;
-				int n = 0;
-
-				for (int i = 0; i < matrix.row; i++)
-				{
-					for (int j = 0; j < matrix.column; j++)
-					{
-						if (i != p && j != q)
-						{
-							minor.content[m][n] = matrix.content[i][j];
-							if (n < matrix.column - 2)
-								n++;
-							else
-							{
-								n = 0;
-								m++;
-							}
-						}
-					}
-				}
-				cofactor.content[p][q] = pow(-1, p + q) * Determinant(minor);
-			}
-		}
-
-		Matrix cofactorTransposed = Transpose(cofactor);
-
-		for (int i = 0; i < matrix.row; i++)
-		{
-			for (int j = 0; j < matrix.column; j++)
-				inverse.content[i][j] = cofactorTransposed.content[i][j] / det;
-		}
-	}
-
-	//printf("------------Inversed Maitrx:----------\n");
-	//PrintMatrix(inverse);
-
-	return inverse;
-}
+//Matrix Inverse(Matrix matrix)
+//{
+//	Matrix inverse = CreateEmptyMatrix(matrix.row, matrix.column);
+//	Matrix cofactor = CreateEmptyMatrix(matrix.row, matrix.column);
+//	Matrix minor = CreateEmptyMatrix(matrix.row - 1, matrix.column - 1);
+//
+//	double det = Determinant(matrix);
+//
+//	if (det == 0)
+//	{
+//		printf("Singular matrix, no inverse!\n");
+//		return;
+//	}
+//
+//	if (matrix.row == 1) // matrix is a number -> inverse = 1/det
+//	{
+//		inverse.content[0][0] = 1 / det;
+//	}
+//	
+//	else
+//	{
+//		for (int p = 0; p < matrix.row; p++)
+//		{
+//			for (int q = 0; q < matrix.column; q++)
+//			{
+//				int m = 0;
+//				int n = 0;
+//
+//				for (int i = 0; i < matrix.row; i++)
+//				{
+//					for (int j = 0; j < matrix.column; j++)
+//					{
+//						if (i != p && j != q)
+//						{
+//							minor.content[m][n] = matrix.content[i][j];
+//							if (n < matrix.column - 2)
+//								n++;
+//							else
+//							{
+//								n = 0;
+//								m++;
+//							}
+//						}
+//					}
+//				}
+//				cofactor.content[p][q] = pow(-1, p + q) * Determinant(minor);
+//			}
+//		}
+//
+//		Matrix cofactorTransposed = Transpose(cofactor);
+//
+//		for (int i = 0; i < matrix.row; i++)
+//		{
+//			for (int j = 0; j < matrix.column; j++)
+//				inverse.content[i][j] = cofactorTransposed.content[i][j] / det;
+//		}
+//	}
+//
+//	//printf("------------Inversed Maitrx:----------\n");
+//	//PrintMatrix(inverse);
+//
+//	return inverse;
+//}
 
 Matrix Kalman(Matrix measurement, Matrix q0, Matrix P0, Matrix Q, Matrix R, Matrix Phi, Matrix H) 
 {
@@ -604,14 +593,14 @@ Matrix Kalman(Matrix measurement, Matrix q0, Matrix P0, Matrix Q, Matrix R, Matr
 	return SpEst;
 }
 
-void FreeMatrixMemory(Matrix matrix)
-{
-	for (int i = 0; i < matrix.row; i++)
-	{
-		free(matrix.content[i]);
-		matrix.content[i] = NULL;
-	}
-
-	free(matrix.content);
-	matrix.content = NULL;
-}
+//void FreeMatrixMemory(Matrix matrix)
+//{
+//	for (int i = 0; i < matrix.row; i++)
+//	{
+//		free(matrix.content[i]);
+//		matrix.content[i] = NULL;
+//	}
+//
+//	free(matrix.content);
+//	matrix.content = NULL;
+//}

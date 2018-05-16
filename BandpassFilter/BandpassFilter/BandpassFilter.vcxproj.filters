@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="buttordBandpassOnly.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="buttordBandpassOnly_initialize.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="buttordBandpassOnly_terminate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rt_nonfinite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rtGetInf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rtGetNaN.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="anyNonFinite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="butterBandpassOnly.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="butterBandpassOnly_emxAPI.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="butterBandpassOnly_emxutil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="butterBandpassOnly_initialize.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="butterBandpassOnly_rtwutil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="butterBandpassOnly_terminate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="colon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="eig.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="exp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="eye.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="inv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="isequal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ixamax.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mrdivide.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mybilinear.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mylp2bs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mypoly.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="myzp2ss.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="qrsolve.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="recip.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="relop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="schur.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sqrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xdlapy3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xgemv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xgeqp3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xgerc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xgetrf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xnrm2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xscal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xtrsm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xunormqr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xzgeev.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xzgetrf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xzhgeqz.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xzhseqr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xzlarfg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xzlartg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xzlascl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sortButtord.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sortButter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateEmptyMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\PrintMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="anyNonFinite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="butterBandpassOnly.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="butterBandpassOnly_emxAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="butterBandpassOnly_emxutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="butterBandpassOnly_initialize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="butterBandpassOnly_rtwutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="butterBandpassOnly_terminate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="butterBandpassOnly_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="buttordBandpassOnly.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="buttordBandpassOnly_initialize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="buttordBandpassOnly_terminate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="buttordBandpassOnly_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="colon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="exp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eye.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="isequal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ixamax.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mrdivide.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mybilinear.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mylp2bs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mypoly.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="myzp2ss.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="qrsolve.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="recip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="relop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rt_defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rt_nonfinite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rtGetInf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rtGetNaN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rtwtypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="schur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sqrt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xdlapy3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xgemv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xgeqp3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xgerc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xgetrf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xnrm2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xscal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xtrsm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xunormqr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xzgeev.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xzgetrf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xzhgeqz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xzhseqr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xzlarfg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xzlartg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xzlascl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sortButtord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sortButter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Kalman Filter\Kalman Filter\Matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

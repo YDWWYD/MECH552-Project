@@ -18,5 +18,43 @@
     <ClCompile Include="KF.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CreateEmptyMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateArbitraryMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transpose.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MatrixMultiplication.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MatrixAddition.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MatrixSubtraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Determinant.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Inverse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeMatrixMemory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
