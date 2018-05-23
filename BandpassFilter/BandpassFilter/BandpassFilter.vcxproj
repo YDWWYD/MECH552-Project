@@ -75,6 +75,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -111,7 +112,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CalculateVariance.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreateArbitraryMatrix.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreateHMatrix.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreateInitialP.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreateInitial_q.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreatePhiMatrix.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreateQMatrix.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\Determinant.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\ExtractRow.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\ExtractRowToColumn.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\FreeMatrixMemory.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\IdentityMatrix.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\Inverse.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\KalmanAlogrithm.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\KalmanFilter.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\KalmanFilterSingle.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\MatrixAddition.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\MatrixMultiplication.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\MatrixSubtraction.c" />
     <ClCompile Include="..\..\Kalman Filter\Kalman Filter\PrintMatrix.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\ReadMeasurements.c" />
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\Transpose.c" />
     <ClCompile Include="anyNonFinite.c" />
     <ClCompile Include="butterBandpassOnly.c" />
     <ClCompile Include="butterBandpassOnly_emxAPI.c" />
@@ -184,7 +206,7 @@
     <ClInclude Include="inv.h" />
     <ClInclude Include="isequal.h" />
     <ClInclude Include="ixamax.h" />
-    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Kalman.h" />
     <ClInclude Include="MatrixOperations.h" />
     <ClInclude Include="mrdivide.h" />
     <ClInclude Include="mybilinear.h" />

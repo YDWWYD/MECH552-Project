@@ -1,10 +1,34 @@
-g:\mech552 chatter detection\kalman filter\kalman filter\debug\vc141.pdb
-g:\mech552 chatter detection\kalman filter\kalman filter\debug\vc141.idb
-g:\mech552 chatter detection\kalman filter\kalman filter\debug\kf.obj
-g:\mech552 chatter detection\kalman filter\debug\kalman filter.exe
-g:\mech552 chatter detection\kalman filter\kalman filter\debug\kalman filter.tlog\cl.command.1.tlog
-g:\mech552 chatter detection\kalman filter\kalman filter\debug\kalman filter.tlog\cl.read.1.tlog
-g:\mech552 chatter detection\kalman filter\kalman filter\debug\kalman filter.tlog\cl.write.1.tlog
-g:\mech552 chatter detection\kalman filter\kalman filter\debug\kalman filter.tlog\link.command.1.tlog
-g:\mech552 chatter detection\kalman filter\kalman filter\debug\kalman filter.tlog\link.read.1.tlog
-g:\mech552 chatter detection\kalman filter\kalman filter\debug\kalman filter.tlog\link.write.1.tlog
+g:\mech552 project\kalman filter\kalman filter\debug\vc141.pdb
+g:\mech552 project\kalman filter\kalman filter\debug\vc141.idb
+g:\mech552 project\kalman filter\kalman filter\debug\createhmatrix.obj
+g:\mech552 project\kalman filter\kalman filter\debug\createinitialp.obj
+g:\mech552 project\kalman filter\kalman filter\debug\createinitial_q.obj
+g:\mech552 project\kalman filter\kalman filter\debug\createphimatrix.obj
+g:\mech552 project\kalman filter\kalman filter\debug\createqmatrix.obj
+g:\mech552 project\kalman filter\kalman filter\debug\determinant.obj
+g:\mech552 project\kalman filter\kalman filter\debug\extractrow.obj
+g:\mech552 project\kalman filter\kalman filter\debug\freematrixmemory.obj
+g:\mech552 project\kalman filter\kalman filter\debug\identitymatrix.obj
+g:\mech552 project\kalman filter\kalman filter\debug\inverse.obj
+g:\mech552 project\kalman filter\kalman filter\debug\kalmanalogrithm.obj
+g:\mech552 project\kalman filter\kalman filter\debug\kalmanfilter.obj
+g:\mech552 project\kalman filter\kalman filter\debug\kalmanfiltersingle.obj
+g:\mech552 project\kalman filter\kalman filter\debug\kf.obj
+g:\mech552 project\kalman filter\kalman filter\debug\matrixaddition.obj
+g:\mech552 project\kalman filter\kalman filter\debug\matrixmultiplication.obj
+g:\mech552 project\kalman filter\kalman filter\debug\matrixsubtraction.obj
+g:\mech552 project\kalman filter\kalman filter\debug\printmatrix.obj
+g:\mech552 project\kalman filter\kalman filter\debug\readmeasurements.obj
+g:\mech552 project\kalman filter\kalman filter\debug\transpose.obj
+g:\mech552 project\kalman filter\kalman filter\debug\calculatevariance.obj
+g:\mech552 project\kalman filter\kalman filter\debug\createarbitrarymatrix.obj
+g:\mech552 project\kalman filter\kalman filter\debug\createemptymatrix.obj
+g:\mech552 project\kalman filter\debug\kalman filter.ilk
+g:\mech552 project\kalman filter\debug\kalman filter.exe
+g:\mech552 project\kalman filter\debug\kalman filter.pdb
+g:\mech552 project\kalman filter\kalman filter\debug\kalman filter.tlog\cl.command.1.tlog
+g:\mech552 project\kalman filter\kalman filter\debug\kalman filter.tlog\cl.read.1.tlog
+g:\mech552 project\kalman filter\kalman filter\debug\kalman filter.tlog\cl.write.1.tlog
+g:\mech552 project\kalman filter\kalman filter\debug\kalman filter.tlog\link.command.1.tlog
+g:\mech552 project\kalman filter\kalman filter\debug\kalman filter.tlog\link.read.1.tlog
+g:\mech552 project\kalman filter\kalman filter\debug\kalman filter.tlog\link.write.1.tlog

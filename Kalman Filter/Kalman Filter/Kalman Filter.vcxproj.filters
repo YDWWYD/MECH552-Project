@@ -48,9 +48,51 @@
     <ClCompile Include="FreeMatrixMemory.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CreatePhiMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IdentityMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateHMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadMeasurements.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculateVariance.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateQMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateInitial_q.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateInitialP.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KalmanFilter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KalmanAlogrithm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KalmanFilterSingle.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractRow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractRowToColumn.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Kalman.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MatrixOperations.h">

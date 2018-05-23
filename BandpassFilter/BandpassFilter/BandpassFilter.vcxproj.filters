@@ -168,6 +168,69 @@
     <ClCompile Include="..\..\Kalman Filter\Kalman Filter\PrintMatrix.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CalculateVariance.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreateArbitraryMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreateHMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreateInitial_q.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreateInitialP.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreatePhiMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\CreateQMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\Determinant.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\FreeMatrixMemory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\IdentityMatrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\Inverse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\KalmanFilter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\MatrixAddition.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\MatrixMultiplication.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\MatrixSubtraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\ReadMeasurements.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\Transpose.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\KalmanAlogrithm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\KalmanFilterSingle.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\ExtractRow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Kalman Filter\Kalman Filter\ExtractRowToColumn.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="anyNonFinite.h">
@@ -329,7 +392,7 @@
     <ClInclude Include="..\..\Kalman Filter\Kalman Filter\Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix.h">
+    <ClInclude Include="Kalman.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MatrixOperations.h">

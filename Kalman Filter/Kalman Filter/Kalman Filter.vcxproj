@@ -112,19 +112,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CalculateVariance.c" />
     <ClCompile Include="CreateArbitraryMatrix.c" />
     <ClCompile Include="CreateEmptyMatrix.c" />
+    <ClCompile Include="CreateHMatrix.c" />
+    <ClCompile Include="CreateInitialP.c" />
+    <ClCompile Include="CreateInitial_q.c" />
+    <ClCompile Include="CreatePhiMatrix.c" />
+    <ClCompile Include="CreateQMatrix.c" />
     <ClCompile Include="Determinant.c" />
+    <ClCompile Include="ExtractRow.c" />
+    <ClCompile Include="ExtractRowToColumn.c" />
     <ClCompile Include="FreeMatrixMemory.c" />
+    <ClCompile Include="IdentityMatrix.c" />
     <ClCompile Include="Inverse.c" />
+    <ClCompile Include="KalmanAlogrithm.c" />
+    <ClCompile Include="KalmanFilter.c" />
+    <ClCompile Include="KalmanFilterSingle.c" />
     <ClCompile Include="KF.c" />
     <ClCompile Include="MatrixAddition.c" />
     <ClCompile Include="MatrixMultiplication.c" />
     <ClCompile Include="MatrixSubtraction.c" />
     <ClCompile Include="PrintMatrix.c" />
+    <ClCompile Include="ReadMeasurements.c" />
     <ClCompile Include="Transpose.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Kalman.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixOperations.h" />
   </ItemGroup>
