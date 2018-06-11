@@ -8,6 +8,7 @@ typedef struct {
 	double SqEst;
 	Matrix PPost;
 	Matrix qPost;
+	Matrix periodicAmp;
 } KalmanOutput;
 
 Matrix CreatePhiMatrix(int N, double spindleSpeed, double samplingPeriod);

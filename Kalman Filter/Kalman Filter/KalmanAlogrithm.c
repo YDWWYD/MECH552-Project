@@ -3,6 +3,7 @@
 KalmanOutput KalmanAlgorithm(double measurement, Matrix Phi, Matrix PhiTranspose, Matrix H, Matrix HTranspose, Matrix identity2N, Matrix R, Matrix Q, Matrix PPost, Matrix qPost)
 {
 	Matrix currentMeasurement = CreateEmptyMatrix(1, 1);
+	Matrix periodicAmp = CreateEmptyMatrix(1, qPost.row/2); //[1xN]
 	currentMeasurement.content[0][0] = measurement;
 
 	KalmanOutput KalmanOut;
@@ -46,9 +47,11 @@ KalmanOutput KalmanAlgorithm(double measurement, Matrix Phi, Matrix PhiTranspose
 
 	Hq = MatrixMultiplication(H, qHatPrior); // Hq: H*q_k [1 * 1]
 	sMinusHq = MatrixSubtraction(currentMeasurement, Hq); // sMinusHq: sk- H*q_k  [1 * 1]
+
 	KsMinusHq = MatrixMultiplication(K, sMinusHq); // KsMinusHq: Kk*(sk- H*q_k) [2N * 1]
 
 	qPost = MatrixAddition(qHatPrior, KsMinusHq);
+
 
 	KH = MatrixMultiplication(K, H); // KH: K_k*H [2N*2N]
 	IminusKH = MatrixSubtraction(identity2N, KH); // IminusKH: I-K_k*H [2N*2N]
@@ -56,10 +59,15 @@ KalmanOutput KalmanAlgorithm(double measurement, Matrix Phi, Matrix PhiTranspose
 	PPost = MatrixMultiplication(IminusKH, PHatPrior);
 
 	Hq_post = MatrixMultiplication(H, qPost);
+	for (int i = 0; i < periodicAmp.column; i++)
+	{
+		periodicAmp.content[0][i] = pow(pow(qPost.content[2 * i][0], 2) + pow(qPost.content[2 * i + 1][0], 2), 0.5);
+	}
 
 	KalmanOut.SqEst = Hq_post.content[0][0];
 	KalmanOut.qPost = qPost;
 	KalmanOut.PPost = PPost;
+	KalmanOut.periodicAmp = periodicAmp;
 
 	FreeMatrixMemory(PPhiTrans);
 	FreeMatrixMemory(PhiPPhiTrans);
@@ -75,7 +83,7 @@ KalmanOutput KalmanAlgorithm(double measurement, Matrix Phi, Matrix PhiTranspose
 	FreeMatrixMemory(KsMinusHq);
 	FreeMatrixMemory(KH);
 	FreeMatrixMemory(IminusKH);
-	//FreeMatrixMemory(Hq_post);
+	FreeMatrixMemory(Hq_post);
 
 	FreeMatrixMemory(K);
 	FreeMatrixMemory(qHatPrior);

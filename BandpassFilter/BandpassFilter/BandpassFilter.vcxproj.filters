@@ -392,10 +392,10 @@
     <ClInclude Include="..\..\Kalman Filter\Kalman Filter\Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Kalman.h">
+    <ClInclude Include="MatrixOperations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MatrixOperations.h">
+    <ClInclude Include="Kalman.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,7 +19,124 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="anyNonFinite.h" />
+    <ClInclude Include="butterBandpassOnly.h" />
+    <ClInclude Include="butterBandpassOnly_emxAPI.h" />
+    <ClInclude Include="butterBandpassOnly_emxutil.h" />
+    <ClInclude Include="butterBandpassOnly_initialize.h" />
+    <ClInclude Include="butterBandpassOnly_rtwutil.h" />
+    <ClInclude Include="butterBandpassOnly_terminate.h" />
+    <ClInclude Include="butterBandpassOnly_types.h" />
+    <ClInclude Include="buttordBandpassOnly.h" />
+    <ClInclude Include="buttordBandpassOnly_initialize.h" />
+    <ClInclude Include="buttordBandpassOnly_terminate.h" />
+    <ClInclude Include="buttordBandpassOnly_types.h" />
+    <ClInclude Include="CBandpassFilters.h" />
+    <ClInclude Include="CChatterDetection.h" />
+    <ClInclude Include="CChatterDetectionSystem.h" />
+    <ClInclude Include="CKalmanFilter.h" />
+    <ClInclude Include="CMatrix.h" />
+    <ClInclude Include="CMeanFilter.h" />
+    <ClInclude Include="CNonlinearEnergyOperator.h" />
+    <ClInclude Include="colon.h" />
+    <ClInclude Include="eig.h" />
+    <ClInclude Include="exp.h" />
+    <ClInclude Include="eye.h" />
+    <ClInclude Include="inv.h" />
+    <ClInclude Include="isequal.h" />
+    <ClInclude Include="ixamax.h" />
+    <ClInclude Include="Kalman.h" />
+    <ClInclude Include="mrdivide.h" />
+    <ClInclude Include="mybilinear.h" />
+    <ClInclude Include="mylp2bs.h" />
+    <ClInclude Include="mypoly.h" />
+    <ClInclude Include="myzp2ss.h" />
+    <ClInclude Include="qrsolve.h" />
+    <ClInclude Include="recip.h" />
+    <ClInclude Include="relop.h" />
+    <ClInclude Include="rtGetInf.h" />
+    <ClInclude Include="rtGetNaN.h" />
+    <ClInclude Include="rtwtypes.h" />
+    <ClInclude Include="rt_defines.h" />
+    <ClInclude Include="rt_nonfinite.h" />
+    <ClInclude Include="schur.h" />
+    <ClInclude Include="sortButter.h" />
+    <ClInclude Include="sortButtord.h" />
+    <ClInclude Include="sqrt.h" />
+    <ClInclude Include="xdlapy3.h" />
+    <ClInclude Include="xgemv.h" />
+    <ClInclude Include="xgeqp3.h" />
+    <ClInclude Include="xgerc.h" />
+    <ClInclude Include="xgetrf.h" />
+    <ClInclude Include="xnrm2.h" />
+    <ClInclude Include="xscal.h" />
+    <ClInclude Include="xtrsm.h" />
+    <ClInclude Include="xunormqr.h" />
+    <ClInclude Include="xzgeev.h" />
+    <ClInclude Include="xzgetrf.h" />
+    <ClInclude Include="xzhgeqz.h" />
+    <ClInclude Include="xzhseqr.h" />
+    <ClInclude Include="xzlarfg.h" />
+    <ClInclude Include="xzlartg.h" />
+    <ClInclude Include="xzlascl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="anyNonFinite.cpp" />
+    <ClCompile Include="butterBandpassOnly.cpp" />
+    <ClCompile Include="butterBandpassOnly_emxAPI.cpp" />
+    <ClCompile Include="butterBandpassOnly_emxutil.cpp" />
+    <ClCompile Include="butterBandpassOnly_initialize.cpp" />
+    <ClCompile Include="butterBandpassOnly_rtwutil.cpp" />
+    <ClCompile Include="butterBandpassOnly_terminate.cpp" />
+    <ClCompile Include="buttordBandpassOnly.cpp" />
+    <ClCompile Include="buttordBandpassOnly_initialize.cpp" />
+    <ClCompile Include="buttordBandpassOnly_terminate.cpp" />
+    <ClCompile Include="CBandpassFilters.cpp" />
+    <ClCompile Include="CChatterDetection.cpp" />
+    <ClCompile Include="CChatterDetectionSystem.cpp" />
+    <ClCompile Include="CKalmanFilter.cpp" />
+    <ClCompile Include="CMatrix.cpp" />
+    <ClCompile Include="CMeanFilter.cpp" />
+    <ClCompile Include="CNonlinearEnergyOperator.cpp" />
+    <ClCompile Include="colon.cpp" />
+    <ClCompile Include="eig.cpp" />
+    <ClCompile Include="exp.cpp" />
+    <ClCompile Include="eye.cpp" />
+    <ClCompile Include="inv.cpp" />
+    <ClCompile Include="isequal.cpp" />
+    <ClCompile Include="ixamax.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mrdivide.cpp" />
+    <ClCompile Include="mybilinear.cpp" />
+    <ClCompile Include="mylp2bs.cpp" />
+    <ClCompile Include="mypoly.cpp" />
+    <ClCompile Include="myzp2ss.cpp" />
+    <ClCompile Include="qrsolve.cpp" />
+    <ClCompile Include="recip.cpp" />
+    <ClCompile Include="relop.cpp" />
+    <ClCompile Include="rtGetInf.cpp" />
+    <ClCompile Include="rtGetNaN.cpp" />
+    <ClCompile Include="rt_nonfinite.cpp" />
+    <ClCompile Include="schur.cpp" />
+    <ClCompile Include="sortButter.cpp" />
+    <ClCompile Include="sortButtord.cpp" />
+    <ClCompile Include="sqrt.cpp" />
+    <ClCompile Include="xdlapy3.cpp" />
+    <ClCompile Include="xgemv.cpp" />
+    <ClCompile Include="xgeqp3.cpp" />
+    <ClCompile Include="xgerc.cpp" />
+    <ClCompile Include="xgetrf.cpp" />
+    <ClCompile Include="xnrm2.cpp" />
+    <ClCompile Include="xscal.cpp" />
+    <ClCompile Include="xtrsm.cpp" />
+    <ClCompile Include="xunormqr.cpp" />
+    <ClCompile Include="xzgeev.cpp" />
+    <ClCompile Include="xzgetrf.cpp" />
+    <ClCompile Include="xzhgeqz.cpp" />
+    <ClCompile Include="xzhseqr.cpp" />
+    <ClCompile Include="xzlarfg.cpp" />
+    <ClCompile Include="xzlartg.cpp" />
+    <ClCompile Include="xzlascl.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -78,14 +195,22 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <Profile>true</Profile>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <Profile>true</Profile>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

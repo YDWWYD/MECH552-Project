@@ -16,7 +16,7 @@ Matrix Inverse(Matrix matrix)
 
 	if (matrix.row == 1) // matrix is a number -> inverse = 1/det
 	{
-		inverse.content[0][0] = 1 / det;
+		inverse.content[0][0] = 1.0 / det;
 	}
 
 	else
